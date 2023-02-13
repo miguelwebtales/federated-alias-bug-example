@@ -1,0 +1,18 @@
+query {
+  search {
+    __typename
+		id
+
+    ... on Repository {
+      good_alias: name
+			broken_alias: repository_name
+    }
+									
+		... on User {
+			good_alias: name
+			broken_alias: user_name
+    }
+
+  }
+
+}

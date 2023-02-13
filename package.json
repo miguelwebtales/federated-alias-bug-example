@@ -1,0 +1,24 @@
+{
+  "name": "federation-sandbox",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "An Apollo federation sandbox with Product and Brands implemented",
+  "main": "src/index.ts",
+  "scripts": {
+    "subgraph-start": "ts-node-dev --watch ./src --respawn src/services/node.ts",
+    "gateway-start": "ts-node-dev --watch ./src --respawn src/index.ts"
+  },
+  "dependencies": {
+    "@apollo/gateway": "2.0.5",
+    "@apollo/subgraph": "2.2.1",
+    "apollo-server": "3.9.0",
+    "graphql": "16.5.0",
+    "ts-node-dev": "1.1.6",
+    "typescript": "4.3.2",
+    "walk-sync": "2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.2"
+  },
+  "keywords": []
+}
