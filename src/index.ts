@@ -1,18 +1,18 @@
 import { ApolloServer } from "apollo-server";
 import { ApolloGateway, IntrospectAndCompose } from "@apollo/gateway";
-// import * as walk from "walk-sync";
-// import { readFileSync } from "fs";
-
-// const serviceList = walk(`${__dirname}/services`, {
-// directories: false,
-// }).map((file) => require(`${__dirname}/services/${file}`));
+const { serializeQueryPlan } = require('@apollo/query-planner');
 
 const supergraphSdl = new IntrospectAndCompose({
-  subgraphs: [{ name: "accounts", url: "http://localhost:4005/graphql" }],
+  subgraphs: [{ name: "example", url: "http://localhost:4005/graphql" }],
 });
 
 const gateway = new ApolloGateway({
   supergraphSdl,
+  experimental_didResolveQueryPlan: function(options) {
+    if (options.requestContext.operationName !== 'IntrospectionQuery') {
+      console.log(serializeQueryPlan(options.queryPlan));
+    }
+  }
 });
 
 const server = new ApolloServer({

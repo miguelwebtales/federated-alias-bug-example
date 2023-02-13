@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/gateway": "2.0.5",
+    "@apollo/query-planner": "^2.3.2",
     "@apollo/subgraph": "2.2.1",
     "apollo-server": "3.9.0",
     "graphql": "16.5.0",

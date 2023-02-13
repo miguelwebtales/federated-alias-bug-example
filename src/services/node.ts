@@ -1,5 +1,6 @@
 const { gql, ApolloServer } = require("apollo-server");
 const { buildSubgraphSchema } = require("@apollo/subgraph");
+const { serializeQueryPlan } = require('@apollo/query-planner');
 
 const typeDefs = gql`
   interface Node {
